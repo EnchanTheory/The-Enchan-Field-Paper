@@ -14,13 +14,13 @@ This paper introduces the Enchan Field as a geometric order field $S(x)$, formul
 - **Precursor Notes:** [Enchan Field Notes](https://github.com/EnchanTheory/Enchan-Field-Notes)
 
 ## Citation / DOI
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20121669.svg)](https://doi.org/10.5281/zenodo.20121669)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20121825.svg)](https://doi.org/10.5281/zenodo.20121825)
 
 If you use or refer to this framework, please cite the Zenodo record above.
 
 ## How to Cite
 
-Kobayashi, M. (2026). *The Enchan Field: An Effective Field Framework for Geometric Stabilization and Non-Linear Relaxation* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.20121669
+Kobayashi, M. (2026). *The Enchan Field: An Effective Field Framework for Geometric Stabilization and Non-Linear Relaxation* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.20121825
 
 ### BibTeX
 
@@ -31,7 +31,7 @@ Kobayashi, M. (2026). *The Enchan Field: An Effective Field Framework for Geomet
   year         = {2026},
   publisher    = {Zenodo},
   version      = {v1.0.0},
-  doi          = {10.5281/zenodo.20121669},
-  url          = {https://doi.org/10.5281/zenodo.20121669}
+  doi          = {10.5281/zenodo.20121825},
+  url          = {https://doi.org/10.5281/zenodo.20121825}
 }
 ```
