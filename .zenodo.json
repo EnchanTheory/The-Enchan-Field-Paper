@@ -9,6 +9,7 @@
     }
   ],
   "access_right": "open",
+  "license": "other-closed",
   "keywords": [
     "Enchan Field",
     "Finite Field Tension",
@@ -22,6 +23,16 @@
       "identifier": "https://github.com/EnchanTheory/Enchan-Web-OS",
       "relation": "isSupplementedBy",
       "resource_type": "software"
+    },
+    {
+      "identifier": "10.5281/zenodo.18104955",
+      "relation": "isSupplementedBy",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "10.5281/zenodo.18139450",
+      "relation": "isSupplementedBy",
+      "resource_type": "dataset"
     },
     {
       "identifier": "https://github.com/EnchanTheory/Enchan-Field-Notes",
