@@ -1,0 +1,31 @@
+{
+  "title": "The Enchan Field: An Effective Field Framework for Geometric Stabilization and Non-Linear Relaxation",
+  "description": "<p>First public release of <strong>The Enchan Field</strong> framework. This paper introduces the finite field tension framework and its translation into deterministic discrete graph optimization. The repository includes the complete LaTeX source code, reproducibility snapshots, and the compiled PDF manuscript.</p>",
+  "creators": [
+    {
+      "name": "Kobayashi, Mitsuhiro",
+      "affiliation": "Enchan Theory"
+    }
+  ],
+  "access_right": "open",
+  "keywords": [
+    "Enchan Field",
+    "Finite Field Tension",
+    "Geometric Stabilization",
+    "Max-Cut",
+    "Deterministic Optimization",
+    "Ising Model"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/EnchanTheory/Enchan-Web-OS",
+      "relation": "isSupplementedBy",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://github.com/EnchanTheory/Enchan-Field-Notes",
+      "relation": "cites",
+      "resource_type": "publication-article"
+    }
+  ]
+}
