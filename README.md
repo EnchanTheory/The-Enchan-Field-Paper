@@ -14,4 +14,6 @@ This paper introduces the Enchan Field as a geometric order field $S(x)$, formul
 - **Precursor Notes:** [Enchan Field Notes](https://github.com/EnchanTheory/Enchan-Field-Notes)
 
 ## Citation / DOI
-*(A Zenodo DOI badge will be placed here upon official release)*
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20121669.svg)](https://doi.org/10.5281/zenodo.20121669)
+
+If you use or refer to this framework, please cite the Zenodo record above.
