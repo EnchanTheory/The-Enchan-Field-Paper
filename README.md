@@ -2,7 +2,7 @@
 
 **An Effective Field Framework for Geometric Stabilization and Non-Linear Relaxation**
 
-This repository contains the LaTeX source code and figures for the paper *The Enchan Field (v1.0.0)*.
+This repository contains the LaTeX source code and figures for the paper *The Enchan Field (v1.0.4)*.
 
 ## Abstract
 The Enchan Field is proposed as an effective field framework for describing geometric stabilization across continuous and discrete systems. Its starting point is the possibility that gravity-like stabilization phenomena are not governed solely by material source terms, but also by the relaxation structure of geometry itself. In this view, coherent large-scale structures arise from a field medium whose response becomes non-linear when deformation, concentration, or interaction intensity exceeds a characteristic scale.
@@ -20,7 +20,7 @@ If you use or refer to this framework, please cite the Zenodo record above.
 
 ## How to Cite
 
-Kobayashi, M. (2026). *The Enchan Field: An Effective Field Framework for Geometric Stabilization and Non-Linear Relaxation* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.20121825
+Kobayashi, M. (2026). *The Enchan Field: An Effective Field Framework for Geometric Stabilization and Non-Linear Relaxation* (v1.0.4). Zenodo. https://doi.org/10.5281/zenodo.20121825
 
 ### BibTeX
 
@@ -30,7 +30,7 @@ Kobayashi, M. (2026). *The Enchan Field: An Effective Field Framework for Geomet
   title        = {The Enchan Field: An Effective Field Framework for Geometric Stabilization and Non-Linear Relaxation},
   year         = {2026},
   publisher    = {Zenodo},
-  version      = {v1.0.0},
+  version      = {v1.0.4},
   doi          = {10.5281/zenodo.20121825},
   url          = {https://doi.org/10.5281/zenodo.20121825}
 }
