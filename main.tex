@@ -33,7 +33,7 @@ An Effective Field Framework for Geometric Stabilization and Non-Linear Relaxati
 \affil[1]{Tokyo, Japan\\
 \texttt{enchan.theory@gmail.com}}
 
-\date{First published May 11, 2026 --- v1.0.4 September 16, 2026}
+\date{First published May 11, 2026 --- v1.0.5 November 19, 2026}
 
 %===========================
 % Document
@@ -125,7 +125,7 @@ The earlier scalar-field formulation used the standard kinetic structure
 \end{equation}
 This expression is retained as the weak-field or weak-concentration approximation. It is sufficient for deriving the basic fluctuation--stabilization relation, but it does not by itself encode the finite-tension principle: under extreme gradients, the quadratic kinetic term continues to scale without changing its response law.
 
-The present formulation therefore replaces the quadratic kinetic term with a non-linear kinetic vessel. This is the central mathematical upgrade from the earlier Enchan Field Equation to the present v1.0.0 formulation.
+The present formulation therefore replaces the quadratic kinetic term with a non-linear kinetic vessel. This is the central mathematical upgrade from the earlier Enchan Field Equation to the effective formulation developed here.
 
 \subsection{Field Variables and Interpretation}
 
@@ -151,23 +151,23 @@ where $a_0$ is the characteristic saturation scale of the field. The effective E
 \;-\; V(S)
 \label{eq:Lagrangian}
 \end{equation}
-where $\mathcal{K}(\mathcal{X})$ is a non-linear kinetic function that reduces to the standard linear form ($\mathcal{K}(\mathcal{X}) \propto \mathcal{X}$) in the weak-field limit, but saturates when the local concentration $\mathcal{X}$ becomes large. $F$ acts as a source term, and $V(S)$ is a self-interaction potential governing stability and defect formation.
+where $\mathcal{K}(\mathcal{X})$ is a non-linear kinetic function. To reproduce the precursor kinetic term with the normalization of $\mathcal{X}$ above, its weak-gradient form is $\mathcal{K}(\mathcal{X})=\tfrac{a_0^2}{2}\mathcal{X}+o(\mathcal{X})$. At stronger gradients the derivative of $\mathcal{K}$ can change, producing a non-linear constitutive response; a decreasing response coefficient does not imply that $\mathcal{K}$ itself approaches a finite constant. $F$ acts as a source term, and $V(S)$ is a self-interaction potential governing stability and defect formation.
 
 This formulation directly embeds the geometric stabilization into the fundamental dynamics of the field, rather than treating it as a post-hoc correction.
 
 \subsection{Euler--Lagrange equation of motion}
-Varying Eq.~\eqref{eq:Lagrangian} with respect to $S$ yields the generalized Euler--Lagrange equation:
+Varying Eq.~\eqref{eq:Lagrangian} with respect to $S$, while retaining the factor of $a_0^{-2}$ in the definition of $\mathcal{X}$, yields:
 \begin{equation}
-\nabla_\mu \left( \frac{\partial \mathcal{K}}{\partial \mathcal{X}} \nabla^\mu S \right) \;=\; F \;-\; \frac{\partial V}{\partial S}
+\nabla_\mu \left( \frac{2}{a_0^2}\frac{\partial \mathcal{K}}{\partial \mathcal{X}} \nabla^\mu S \right) \;=\; F \;-\; \frac{\partial V}{\partial S}
 \label{eq:FieldEq}
 \end{equation}
-If we define the effective response function as $\mu(\mathcal{X}) \equiv \frac{\partial \mathcal{K}}{\partial \mathcal{X}}$, the field equation becomes:
+With the normalized response function $\mu(\mathcal{X}) \equiv \frac{2}{a_0^2}\frac{\partial \mathcal{K}}{\partial \mathcal{X}}$, which tends to unity for the stated weak-gradient normalization, the field equation becomes:
 \begin{equation}
 \nabla_\mu \Big( \mu(\mathcal{X}) \nabla^\mu S \Big) \;=\; F \;-\; \frac{\partial V}{\partial S}
 \label{eq:FieldEqMu}
 \end{equation}
 
-This equation explicitly demonstrates how the field's finite tension modifies its own propagation. In regions of extreme concentration, $\mu(\mathcal{X})$ deviates from unity, dampening the effective coupling and preventing the field from diverging. In this sense, convergence is not an external optimization instruction; it is the field's own relaxation mechanism derived directly from first principles.
+This equation shows how a gradient-dependent constitutive response can modify the field's coupling at high deformation. Attenuation of the response coefficient is not, by itself, a theorem that the field is bounded, globally regular, or asymptotically convergent. In a conservative time-dependent realization, oscillations about equilibrium may persist. Relaxation toward an equilibrium requires additional conditions, such as dissipation, radiative loss, or suitable boundary and source dynamics. The applicability and stability of a particular response must be assessed in its specified regime.
 
 \clearpage
 
@@ -179,7 +179,9 @@ Let $D$ denote a local measure of interaction intensity or field deformation. Th
 \begin{equation}
 \mu(D) \approx \frac{1}{1 + (|D|/a_0)^\alpha},
 \end{equation}
-where $a_0$ is the saturation threshold and $\alpha$ controls the sharpness of attenuation.
+where $a_0$ is the characteristic scale and $\alpha>0$ controls the sharpness of attenuation. This expression is an illustrative response family, not a unique constitutive law imposed on all physical and computational branches.
+
+The response coefficient $\mu(D)$, the transmitted magnitude $J(D)\equiv |D|\mu(D)$, and the kinetic function $\mathcal{K}$ are distinct quantities. Decreasing $\mu(D)$ does not alone bound either $J(D)$ or $\mathcal{K}$. In this illustrative family, $J(D)$ grows without bound for $0<\alpha<1$, approaches $a_0$ for $\alpha=1$, and decreases at sufficiently large $|D|$ for $\alpha>1$. If this form is used in a continuous static gradient law, incremental positivity and stability require separate examination; screening alone does not guarantee either.
 
 For $|D| \ll a_0$, the field behaves approximately linearly. For $|D| \gg a_0$, the effective interaction is attenuated. This is the mathematical expression of finite field tension: the medium does not permit a localized concentration to dominate the global relaxation process without resistance.
 
@@ -298,6 +300,8 @@ Optimization tests were performed on a synthetic scale-free network (Barab\'{a}s
     \item Upon introducing the non-linear screening function $\mu_i(H_i)$, the system avoided early stabilization in shallow minima and converged to higher cut ratios.
 \end{itemize}
 
+The observations above describe reported runs, not a fully controlled large-scale ablation that changes only screening while holding graph, initialization, stopping rule, and compute budget fixed. Consequently, the large-scale snapshots alone do not isolate screening as the sole cause of any cut-ratio difference.
+
 \subsection{Scale Invariance and Stability}
 Execution on a 1-million node random sparse graph completed in 2.56 seconds using standard CPU hardware. The system remained mathematically stable without manual hyperparameter grid-search, due to the dynamic derivation of Courant--Friedrichs--Lewy (CFL) stability limits scaled against the field parameters.
 
@@ -342,7 +346,7 @@ This layered interpretation limits the scope of the claim. The paper does not as
 
 The non-linear kinetic structure used here is mathematically related to k-essence-type effective field theories and to broader scalar-field approaches in modified gravity. The novelty claimed in this paper is not the use of a non-linear kinetic term by itself. Rather, the proposed contribution is the interpretation of such a term as a finite-tension stabilization vessel, together with its translation into deterministic relaxation dynamics on discrete graph topologies.
 
-This paper does not claim to supersede existing k-essence, MOND-like, TeVeS-like, or scalar-field modified-gravity models. It instead proposes an effective framework in which finite-tension screening, geometric stabilization, and discrete optimization can be discussed using a shared relaxation language. A detailed comparative analysis against existing relativistic and nonrelativistic modified-dynamics theories is outside the scope of the present v1.0.0 formulation.
+This paper does not claim to supersede existing k-essence, MOND-like, TeVeS-like, or scalar-field modified-gravity models. It instead proposes an effective framework in which finite-tension screening, geometric stabilization, and discrete optimization can be discussed using a shared relaxation language. A detailed comparative analysis against existing relativistic and nonrelativistic modified-dynamics theories is outside the scope of the present effective formulation.
 
 \subsection{Field-First Development and Computational Realization}
 
@@ -358,7 +362,7 @@ The later observation that this process behaved as a deterministic graph-optimiz
 
 Optimization on a graph is typically viewed as a series of discrete arithmetic operations. The Enchan Field suggests a different interpretation: optimization can be understood as relaxation within a continuous interaction medium. The binary solution emerges not only from search, but from the formation of stable phase boundaries under field constraints.
 
-In this context, the term \emph{deterministic} refers to the strictly reproducible evolution of the system state as defined by its effective field equations. Unlike standard stochastic optimization methods (e.g., simulated annealing) that rely on random thermal noise to escape local minima, the Enchan Field avoids premature convergence through the deterministic regularization of its non-linear tension.
+In this context, the term \emph{deterministic} refers to the strictly reproducible evolution of the system state as defined by its effective field equations. Unlike stochastic methods (e.g., simulated annealing) that can rely on random thermal noise, the studied Enchan relaxation examples use deterministic screening to reduce premature fixation under the reported conditions; this does not establish a universal convergence or optimality guarantee.
 
 In this view, candidate cut surfaces correspond to phase boundaries formed during relaxation. They should not yet be claimed to map exactly to globally optimal cuts in all cases. Rather, they represent stable separations induced by the geometry of the interaction field.
 
@@ -376,7 +380,7 @@ The present paper generalizes earlier Enchan Field notes that emphasized topolog
 
 \subsection{Limitations}
 
-The current formulation is an effective field model and does not yet provide a complete fundamental theory of spacetime, gravity, or cosmology. The astrophysical section demonstrates a plausible stabilization signature, while the graph section demonstrates a computational realization of the same principle. The Solar-System high-acceleration calculation is included only as a diagnostic extrapolation; it is not a substitute for full ephemeris fitting or precision-gravity constraints. Further work is required to derive stronger observational predictions, establish uniqueness conditions, and compare against broader classes of optimization algorithms. The benchmark audit snapshots document representative local runs, but a fuller reproducibility package should include complete hardware metadata, edge-list provenance, implementation language and version, stopping criteria, cut-ratio definitions, and deterministic hash-confirmation procedures.
+The current formulation is an effective field model and does not yet provide a complete fundamental theory of spacetime, gravity, or cosmology. The astrophysical section demonstrates a plausible stabilization signature, while the graph section demonstrates a computational realization of the same principle. The Solar-System high-acceleration calculation is included only as a diagnostic extrapolation; it is not a substitute for full ephemeris fitting or precision-gravity constraints. The illustrative continuous screening law alone does not establish asymptotic convergence or global continuum regularity. The reported large-scale graph comparisons are observational rather than controlled screening-only ablations. Further work is required to derive stronger observational predictions, establish uniqueness conditions, and compare against broader classes of optimization algorithms. The benchmark audit snapshots document representative local runs, but a fuller reproducibility package should include complete hardware metadata, edge-list provenance, implementation language and version, stopping criteria, cut-ratio definitions, and deterministic hash-confirmation procedures.
 
 \section{Conclusion}
 
