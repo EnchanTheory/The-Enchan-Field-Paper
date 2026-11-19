@@ -1,6 +1,6 @@
 {
   "title": "The Enchan Field: An Effective Field Framework for Geometric Stabilization and Non-Linear Relaxation",
-  "description": "<p>First public release of <strong>The Enchan Field</strong> framework. This paper introduces the finite field tension framework and its translation into deterministic discrete graph optimization. The repository includes the complete LaTeX source code, reproducibility snapshots, and the compiled PDF manuscript.</p>",
+  "description": "<p><strong>The Enchan Field v1.0.5</strong> refines the mathematical presentation of this effective finite-tension field framework. It corrects the variational response normalization, distinguishes constitutive attenuation from flux or kinetic saturation, and clarifies that screening alone does not establish global regularity or asymptotic convergence. The continuous-field, discrete-analogy, and computational-implementation layers remain explicitly distinct. The astrophysical illustrations, graph benchmarks and numerical results are unchanged. This repository contains the LaTeX source, figures, verification provenance, and compiled PDF; earlier releases remain available as historical versions.</p>",
   "creators": [
     {
       "name": "Kobayashi, Mitsuhiro",
