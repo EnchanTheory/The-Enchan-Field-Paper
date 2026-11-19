@@ -18,7 +18,7 @@ This paper introduces the Enchan Field as a geometric order field $S(x)$, formul
 This revision corrects the Euler--Lagrange response normalization, distinguishes coefficient attenuation from flux/kinetic saturation, and makes explicit that screening alone does not prove asymptotic convergence. The abstract, introduction, and conclusion now preserve that claim boundary. It adds no new numerical results or changes to the existing astrophysical demonstration. See [`REVISION_v1.0.5.md`](./REVISION_v1.0.5.md) for the exact scope.
 
 ## Citation / DOI
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20121825.svg)](https://doi.org/10.5281/zenodo.20121825)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20121394.svg)](https://doi.org/10.5281/zenodo.20121394)
 
 The citation below refers to the **published v1.0.4**, not to the GitHub v1.0.5 revision. No v1.0.5 Zenodo record or DOI has been issued by this commit. For the published version, cite the Zenodo record above.
 
