@@ -2,7 +2,7 @@
 
 **An Effective Field Framework for Geometric Stabilization and Non-Linear Relaxation**
 
-This repository contains the LaTeX source code, figures, and compiled PDF for *The Enchan Field*. The `main` branch contains the **v1.0.5 (November 19, 2026) manuscript**; its GitHub Actions workflow compiles `main.tex` and synchronizes the resulting `main.pdf` to this repository. The previously published **v1.0.4** remains preserved in the frozen `zenodo_bundle/` and Zenodo archival record. The latest GitHub Release is [v1.0.5](https://github.com/EnchanTheory/The-Enchan-Field-Paper/releases/tag/v1.0.5), with the compiled PDF attached. The published Zenodo citation below still identifies v1.0.4; Zenodo archiving of the new GitHub release, if connected, must be checked separately.
+This repository contains the LaTeX source code, figures, and compiled PDF for *The Enchan Field*. The `main` branch contains the **v1.0.5 (November 19, 2026) manuscript**; its GitHub Actions workflow compiles `main.tex` and synchronizes the resulting `main.pdf` to this repository. The previously published **v1.0.4** remains preserved in the frozen `zenodo_bundle/` and Zenodo archival record. The latest GitHub Release is [v1.0.5](https://github.com/EnchanTheory/The-Enchan-Field-Paper/releases/tag/v1.0.5), with the compiled PDF attached. The Zenodo Concept DOI below is the stable citation link for this work across versions, including the latest release.
 
 ## Abstract
 The Enchan Field is proposed as an effective field framework for describing geometric stabilization across continuous and discrete systems. Its starting point is the possibility that gravity-like stabilization phenomena are not governed solely by material source terms, but also by the relaxation structure of geometry itself. In this view, coherent large-scale structures arise from a field medium whose response becomes non-linear when deformation, concentration, or interaction intensity exceeds a characteristic scale.
@@ -20,11 +20,11 @@ This revision corrects the Euler--Lagrange response normalization, distinguishes
 ## Citation / DOI
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20121394.svg)](https://doi.org/10.5281/zenodo.20121394)
 
-The citation below refers to the **published v1.0.4**, not to the GitHub v1.0.5 revision. No v1.0.5 Zenodo record or DOI has been issued by this commit. For the published version, cite the Zenodo record above.
+Use the **Concept DOI** below to cite the work across versions. This DOI resolves to the latest Zenodo version; cite a version-specific DOI only when an exact historical version is required.
 
 ## How to Cite
 
-Kobayashi, M. (2026). *The Enchan Field: An Effective Field Framework for Geometric Stabilization and Non-Linear Relaxation* (v1.0.4). Zenodo. https://doi.org/10.5281/zenodo.20121825
+Kobayashi, M. (2026). *The Enchan Field: An Effective Field Framework for Geometric Stabilization and Non-Linear Relaxation*. Zenodo. https://doi.org/10.5281/zenodo.20121394
 
 ### BibTeX
 
@@ -34,8 +34,7 @@ Kobayashi, M. (2026). *The Enchan Field: An Effective Field Framework for Geomet
   title        = {The Enchan Field: An Effective Field Framework for Geometric Stabilization and Non-Linear Relaxation},
   year         = {2026},
   publisher    = {Zenodo},
-  version      = {v1.0.4},
-  doi          = {10.5281/zenodo.20121825},
-  url          = {https://doi.org/10.5281/zenodo.20121825}
+  doi          = {10.5281/zenodo.20121394},
+  url          = {https://doi.org/10.5281/zenodo.20121394}
 }
 ```
