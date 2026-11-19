@@ -1,6 +1,6 @@
 # Figure Provenance and Reproducibility Record
 
-Status: Resolved under the strict Policy 310 (No Third-Party Bundling). Updated for v1.0.4 release (16 September 2026).
+Status: Resolved under the strict Policy 310 (No Third-Party Bundling). Included in the v1.0.5 release (19 November 2026); the benchmark data, figures, and recorded checksums are unchanged from v1.0.4.
 
 This document serves as the official reproducibility and provenance register for the benchmark figures presented in **The Enchan Field** manuscript.
 

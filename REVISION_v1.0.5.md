@@ -2,7 +2,7 @@
 
 Date: 2026-11-19
 
-This is a **GitHub manuscript and compiled-PDF revision**, not a new Zenodo publication or release. GitHub Actions compiles `main.tex` and synchronizes the resulting `main.pdf` onto `main`. The archived Zenodo v1.0.4 ZIP/PDF and frozen `zenodo_bundle/` remain unchanged.
+This is a **GitHub manuscript and compiled-PDF revision**. GitHub Actions compiles `main.tex`, synchronizes `main.pdf`, and builds the version-matched PDF and source ZIP in `zenodo_bundle/` for manual Zenodo file updates. The original Zenodo v1.0.4 record and Git history remain preserved. Updating the published Zenodo v1.0.5 record itself is a separate operation.
 
 ## Scope of changes
 
@@ -18,7 +18,7 @@ This is a **GitHub manuscript and compiled-PDF revision**, not a new Zenodo publ
 
 - Astrophysical logarithmic example and high-acceleration diagnostic.
 - Benchmark scores, plots, implementation disclosures, and proprietary solver core.
-- The frozen `zenodo_bundle/` and existing published v1.0.4 DOI. The repository `main.pdf` is updated to the current v1.0.5 manuscript.
+- The existing published v1.0.4 DOI and Git history. The distribution files in `zenodo_bundle/` are updated to match v1.0.5; the earlier Zenodo record itself is not changed.
 - Other published papers, canonical research maps, and historical audit decisions.
 
 The paper continues to claim a **three-layer effective proposal** (continuous field, computational analogue, implementation), not an exact continuous-to-graph derivation or a global convergence theorem.
