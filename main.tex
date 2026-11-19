@@ -45,9 +45,9 @@ An Effective Field Framework for Geometric Stabilization and Non-Linear Relaxati
 \begin{abstract}
 The Enchan Field is proposed as an effective field framework for describing geometric stabilization across continuous and discrete systems. Its starting point is the possibility that gravity-like stabilization phenomena are not governed solely by material source terms, but also by the relaxation structure of geometry itself. In this view, coherent large-scale structures arise from a field medium whose response becomes non-linear when deformation, concentration, or interaction intensity exceeds a characteristic scale.
 
-This paper introduces the Enchan Field as a geometric order field $S(x)$, formulates its effective relaxation equation, and interprets its non-linear screening response as finite field tension rather than as an externally imposed correction. The same stabilization principle is then translated into discrete graph dynamics, where high-degree hub nodes act as localized over-concentrations of interaction intensity. Under purely linear aggregation, these hubs can dominate the relaxation landscape and cause premature convergence. Under Enchan Field screening, excessive local concentration is regularized, allowing the system to relax toward stable phase boundaries that correspond to candidate graph cuts.
+This paper introduces the Enchan Field as a geometric order field $S(x)$, formulates its effective relaxation equation, and interprets its non-linear screening response as finite field tension rather than as an externally imposed correction. The same stabilization principle is then translated into discrete graph dynamics, where high-degree hub nodes act as localized over-concentrations of interaction intensity. Under purely linear aggregation, these hubs can dominate the relaxation landscape and cause premature convergence. In the reported graph examples, screening attenuates excessive local influence and can preserve candidate routes toward phase boundaries associated with graph cuts; screening alone does not guarantee convergence.
 
-The computational engine known as Enchan Cosmic is therefore interpreted here not as the theoretical starting point, but as a discrete realization of the Enchan Field principle. Empirical observations on scale-free networks suggest that finite-tension relaxation can suppress hub-induced collapse while preserving deterministic reproducibility. The result is a unified proposal: geometric stabilization in continuous fields and deterministic optimization in discrete topologies can be described as manifestations of non-linear relaxation within an interaction medium.
+The computational engine known as Enchan Cosmic is therefore interpreted here not as the theoretical starting point, but as a discrete realization of the Enchan Field principle. Reported observations on scale-free networks are consistent with reduced hub-induced premature fixation while preserving deterministic reproducibility, but do not by themselves isolate the screening mechanism. The result is a unified proposal: geometric stabilization in continuous fields and deterministic optimization in discrete topologies can be described as manifestations of non-linear relaxation within an interaction medium.
 \end{abstract}
 
 \tableofcontents
@@ -60,7 +60,7 @@ Gravity is usually described through the distribution of material sources. The g
 
 The Enchan Field is proposed as an effective field framework for this geometric stabilization. Rather than beginning from an additional substance or from a pre-existing modified-dynamics model, this paper begins from a simpler question: can the stabilizing effect inferred from large-scale coherent structures be represented as a property of the interaction field itself?
 
-In the Enchan interpretation, geometry is not treated as a passive background. It is modeled as a medium with an order parameter, a relaxation law, and a finite capacity to absorb concentration. When interaction intensity remains within ordinary bounds, the field may appear approximately linear. When concentration becomes excessive, however, the field enters a non-linear response regime. This finite-tension response prevents unbounded distortion and produces stabilization.
+In the Enchan interpretation, geometry is not treated as a passive background. It is modeled as a medium with an order parameter and a non-linear constitutive response. When interaction intensity remains within ordinary bounds, the field may appear approximately linear. At higher local concentration, the model attenuates the effective response. Such screening may contribute to stabilization when combined with suitable dynamics and boundary conditions, but does not alone establish a bound on deformation or guarantee convergence.
 
 This paper develops the Enchan Field before introducing its computational realization. This is important because Enchan Cosmic, described elsewhere as a deterministic graph dynamics engine, is not the theoretical premise of the present work. It is a discrete realization of the broader field principle: optimization on a graph can be interpreted as geometric relaxation within a constrained interaction medium.
 
@@ -82,7 +82,7 @@ The main contributions of this paper are:
 
 \section{What Is the Enchan Field?}
 
-The Enchan Field is an effective interaction field whose scalar order parameter $S(x)$ represents the stabilized geometric configuration of a system. It is not introduced as a new material component. It is introduced as a way to describe how geometry-like structure can converge toward stable configurations under fluctuation, concentration, and constraint.
+The Enchan Field is an effective interaction field whose scalar order parameter $S(x)$ represents the stabilized geometric configuration of a system. It is not introduced as a new material component. It is introduced as a way to describe how geometry-like structure may evolve toward stable configurations under fluctuation, concentration, and constraint.
 
 The central idea is that a system may contain not only local interactions, but also a global relaxation medium through which those interactions become organized. In ordinary descriptions, interaction is often treated as pairwise coupling between objects. In the Enchan Field view, such pairwise interactions are embedded in a continuous medium whose deformation determines the global stabilization path.
 
@@ -106,9 +106,9 @@ The present work preserves the conceptual core of that formulation---space-like 
 
 \subsection{Finite Field Tension}
 
-A key postulate of the Enchan Field is finite field tension. A continuous interaction medium cannot sustain unlimited concentration while remaining linear. Beyond a characteristic scale, the effective interaction law must change. The change is not arbitrary damping; it is the field's own resistance to unbounded deformation.
+A key postulate of the Enchan Field is finite field tension, expressed here as a departure from linear constitutive response above a characteristic concentration scale. The model assigns reduced effective coupling to sufficiently strong local input. This constitutive attenuation is distinct from an explicitly dissipative damping term, and does not itself impose an absolute bound on field deformation.
 
-This principle is later expressed computationally as a non-linear screening factor. In the field interpretation, however, screening is not an external patch. It is the mathematical signature of a medium whose response saturates when local concentration exceeds its stable range.
+This principle is later expressed computationally as a non-linear screening factor. In the field interpretation, screening is included in the constitutive model rather than added as a numerical damping patch. Attenuation of the response coefficient should not be confused with saturation of the total transmitted flux or of the kinetic function.
 
 \clearpage
 
@@ -153,7 +153,7 @@ where $a_0$ is the characteristic saturation scale of the field. The effective E
 \end{equation}
 where $\mathcal{K}(\mathcal{X})$ is a non-linear kinetic function. To reproduce the precursor kinetic term with the normalization of $\mathcal{X}$ above, its weak-gradient form is $\mathcal{K}(\mathcal{X})=\tfrac{a_0^2}{2}\mathcal{X}+o(\mathcal{X})$. At stronger gradients the derivative of $\mathcal{K}$ can change, producing a non-linear constitutive response; a decreasing response coefficient does not imply that $\mathcal{K}$ itself approaches a finite constant. $F$ acts as a source term, and $V(S)$ is a self-interaction potential governing stability and defect formation.
 
-This formulation directly embeds the geometric stabilization into the fundamental dynamics of the field, rather than treating it as a post-hoc correction.
+This formulation embeds a non-linear constitutive response in the field dynamics, rather than treating screening as a post-hoc numerical correction. Stability and long-time relaxation remain conditional properties of the chosen model.
 
 \subsection{Euler--Lagrange equation of motion}
 Varying Eq.~\eqref{eq:Lagrangian} with respect to $S$, while retaining the factor of $a_0^{-2}$ in the definition of $\mathcal{X}$, yields:
@@ -183,7 +183,7 @@ where $a_0$ is the characteristic scale and $\alpha>0$ controls the sharpness of
 
 The response coefficient $\mu(D)$, the transmitted magnitude $J(D)\equiv |D|\mu(D)$, and the kinetic function $\mathcal{K}$ are distinct quantities. Decreasing $\mu(D)$ does not alone bound either $J(D)$ or $\mathcal{K}$. In this illustrative family, $J(D)$ grows without bound for $0<\alpha<1$, approaches $a_0$ for $\alpha=1$, and decreases at sufficiently large $|D|$ for $\alpha>1$. If this form is used in a continuous static gradient law, incremental positivity and stability require separate examination; screening alone does not guarantee either.
 
-For $|D| \ll a_0$, the field behaves approximately linearly. For $|D| \gg a_0$, the effective interaction is attenuated. This is the mathematical expression of finite field tension: the medium does not permit a localized concentration to dominate the global relaxation process without resistance.
+For $|D| \ll a_0$, the field behaves approximately linearly. For $|D| \gg a_0$, the effective interaction is attenuated. This is an illustrative form of the finite-tension principle: sufficiently large local input receives a smaller response coefficient, which can mitigate excessive influence under appropriate dynamical conditions.
 
 \clearpage
 
@@ -376,7 +376,7 @@ Thus, the Enchan Field should be understood primarily as a finite-tension stabil
 
 \subsection{Relation to earlier field-note formulations}
 
-The present paper generalizes earlier Enchan Field notes that emphasized topological defects, asymptotic $1/r^2$ energy-density profiles, and flat rotation signatures. Those notes remain useful as phenomenological and historical precursors. However, the present formulation changes the theoretical center of gravity: the primary object is no longer a defect sector alone, but a finite-tension geometric stabilization field whose non-linear kinetic response can generate screening, regularization, and phase-boundary formation across both continuous and discrete systems.
+The present paper generalizes earlier Enchan Field notes that emphasized topological defects, asymptotic $1/r^2$ energy-density profiles, and flat rotation signatures. Those notes remain useful as phenomenological and historical precursors. However, the present formulation changes the theoretical center of gravity: the primary object is no longer a defect sector alone, but an effective finite-tension field whose non-linear response supplies a screening mechanism and may support regularization or phase-boundary formation in particular continuous and discrete realizations.
 
 \subsection{Limitations}
 
@@ -384,11 +384,11 @@ The current formulation is an effective field model and does not yet provide a c
 
 \section{Conclusion}
 
-We introduced the Enchan Field as an effective field framework for geometric stabilization. Its core idea is that coherent structures can arise from the relaxation of an interaction medium with finite field tension. When local concentration exceeds a characteristic scale, the field responds non-linearly, regularizing excessive deformation and preventing collapse.
+We introduced the Enchan Field as an effective framework for geometric stabilization. Its core proposal is that coherent structures may arise through the dynamics of an interaction medium with a finite-tension response. Above a characteristic concentration scale the model attenuates effective local coupling; whether this yields bounded evolution or long-time stabilization depends on the constitutive regime and on additional dynamical or boundary conditions.
 
-This principle provides a common language for two domains that are usually treated separately. In astrophysical interpretation, it offers a geometric route to large-scale stabilization signatures such as approximately flat rotation profiles. In discrete graph dynamics, it explains why non-linear screening can suppress hub-induced collapse in scale-free networks.
+This principle provides a common language for two domains that are usually treated separately. In astrophysical interpretation, it offers a conditional geometric example of approximately flat rotation profiles. In discrete graph dynamics, the reported results are consistent with reduced hub-induced premature fixation, while the large-scale snapshots do not establish a controlled screening-only causal comparison.
 
-The Enchan Field is therefore proposed as a unifying formalism for stabilization phenomena across continuous geometry and discrete topology. Enchan Cosmic is one computational realization of this principle, demonstrating that deterministic optimization can be interpreted as geometric relaxation within a finite-tension interaction field.
+The Enchan Field is therefore proposed as a shared effective language for possible stabilization mechanisms across continuous geometry and discrete topology. Enchan Cosmic is one computational realization of this principle, illustrating a deterministic relaxation approach without asserting an exact continuous-to-graph derivation or universal convergence guarantee.
 
 \clearpage
 

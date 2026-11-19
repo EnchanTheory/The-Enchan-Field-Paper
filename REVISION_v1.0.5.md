@@ -2,7 +2,7 @@
 
 Date: 2026-11-19
 
-This is a **source commit**, not a new Zenodo publication or release. The archived v1.0.4 ZIP/PDF and the current repository `main.pdf` remain unchanged; compile `main.tex` or use the GitHub Actions PDF artifact to inspect the v1.0.5 source.
+This is a **GitHub manuscript and compiled-PDF revision**, not a new Zenodo publication or release. GitHub Actions compiles `main.tex` and synchronizes the resulting `main.pdf` onto `main`. The archived Zenodo v1.0.4 ZIP/PDF and frozen `zenodo_bundle/` remain unchanged.
 
 ## Scope of changes
 
@@ -12,11 +12,13 @@ This is a **source commit**, not a new Zenodo publication or release. The archiv
 4. **Large-graph evidence scope (§7):** Identify the original observations as reported runs, not a screening-only matched ablation. Preserve all numerical claims and figures unchanged.
 5. **Version clarity:** Replace two historical manuscript references to “present v1.0.0” with version-independent wording.
 
+6. **Cross-section claim consistency:** Qualify the abstract, introduction, finite-tension explanation, discussion, and conclusion so that no unconditional convergence, boundedness, or collapse-prevention claim remains.
+
 ## Intentionally unchanged
 
 - Astrophysical logarithmic example and high-acceleration diagnostic.
 - Benchmark scores, plots, implementation disclosures, and proprietary solver core.
-- `main.pdf`, `zenodo_bundle/`, and the existing published v1.0.4 DOI.
+- The frozen `zenodo_bundle/` and existing published v1.0.4 DOI. The repository `main.pdf` is updated to the current v1.0.5 manuscript.
 - Other published papers, canonical research maps, and historical audit decisions.
 
 The paper continues to claim a **three-layer effective proposal** (continuous field, computational analogue, implementation), not an exact continuous-to-graph derivation or a global convergence theorem.
