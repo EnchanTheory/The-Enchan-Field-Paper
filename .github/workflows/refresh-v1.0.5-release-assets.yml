@@ -1,0 +1,80 @@
+name: Refresh existing v1.0.5 Release assets
+
+# One-time, asset-only maintenance. Do not create a new Release or move its tag.
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/refresh-v1.0.5-release-assets.yml
+
+permissions:
+  contents: write
+
+jobs:
+  refresh_release_assets:
+    if: github.repository == 'EnchanTheory/The-Enchan-Field-Paper'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current distribution files
+        uses: actions/checkout@v4
+
+      - name: Verify release exists and distribution files match the manuscript
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release view v1.0.5 >/dev/null
+          python3 - <<'PY'
+          from pathlib import Path
+          import zipfile
+          root = Path(".")
+          bundle = root / "zenodo_bundle"
+          pdf = bundle / "The_Enchan_Field_v1.0.5.pdf"
+          archive = bundle / "The-Enchan-Field-Paper-v1.0.5.zip"
+          assert pdf.is_file() and archive.is_file(), "Missing v1.0.5 distribution files"
+          assert pdf.read_bytes() == (root / "main.pdf").read_bytes(), "Bundled PDF differs from main.pdf"
+          with zipfile.ZipFile(archive) as z:
+              assert z.testzip() is None, "ZIP integrity check failed"
+              assert z.read("main.tex") == (root / "main.tex").read_bytes(), "ZIP source differs from main.tex"
+              assert z.read("LICENSE") == (bundle / "LICENSE").read_bytes(), "ZIP LICENSE mismatch"
+          print("Verified distribution files match current v1.0.5 source and PDF.")
+          PY
+
+      - name: Replace PDF and add ZIP to the EXISTING GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release upload v1.0.5 \
+            zenodo_bundle/The_Enchan_Field_v1.0.5.pdf \
+            zenodo_bundle/The-Enchan-Field-Paper-v1.0.5.zip \
+            --clobber
+
+      - name: Verify uploaded release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api repos/EnchanTheory/The-Enchan-Field-Paper/releases/tags/v1.0.5 > /tmp/enchan_release.json
+          python3 - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+          release = json.loads(Path("/tmp/enchan_release.json").read_text())
+          assert release["tag_name"] == "v1.0.5"
+          assets = {x["name"]: x for x in release["assets"]}
+          for name in ("The_Enchan_Field_v1.0.5.pdf", "The-Enchan-Field-Paper-v1.0.5.zip"):
+              file = Path("zenodo_bundle") / name
+              remote = assets.get(name)
+              assert remote is not None, f"Missing uploaded asset {name}"
+              assert remote["size"] == file.stat().st_size, f"Asset size mismatch: {name}"
+              digest = remote.get("digest")
+              local = "sha256:" + hashlib.sha256(file.read_bytes()).hexdigest()
+              if digest:
+                  assert digest == local, f"SHA-256 mismatch: {name}"
+              print(f"Verified {name}: {remote['size']} bytes; sha256={local[7:]}")
+          print("Existing Release updated in place; no new Release published or tag moved.")
+          PY
